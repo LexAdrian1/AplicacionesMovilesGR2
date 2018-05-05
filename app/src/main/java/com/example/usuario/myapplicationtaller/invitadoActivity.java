@@ -16,18 +16,18 @@ import modelo.Producto;
 public class invitadoActivity extends AppCompatActivity {
 
     ListView miListaInvitado;
-    /*ArrayAdapter<String> adapter;
-    Producto misZapatos [];
-    String [] nombreDeZapatos;*/
+    ArrayAdapter<String> adapteri;
+    String [] nombreDeZapatos;
 
     ArrayAdapter<Producto> adapter;
     Producto [] misZapatos;
+
     PopupMenu popUpMenuInvitado;
     PopupMenu popUpMenuUser;
 
-    /*public void cargarNombres(){
+    public void cargarNombres(){
         nombreDeZapatos = new Producto().nombresDeZapatos();
-    }*/
+    }
     public void cargarZapatos(){
         misZapatos = new Producto().cargarZapatos();
     }
@@ -39,11 +39,18 @@ public class invitadoActivity extends AppCompatActivity {
 
         miListaInvitado = (ListView) findViewById(R.id.listaInvitado);
         //invitado = getIntent().getExtras().getString("idUser");
-        //passInvitado = getIntent().getExtras().getString("idPass");
-        //cargarNombres();
-        cargarZapatos();
-        adapter = new ArrayAdapter<>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,misZapatos);
-        miListaInvitado.setAdapter(adapter);
+        //passInvitado = getIntent().getExtras().getString("idPass")
+
+        if((getIntent().getExtras().getString("verificarUsuario")).equals("User")){
+            cargarZapatos();
+            adapter = new ArrayAdapter<>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,misZapatos);
+            miListaInvitado.setAdapter(adapter);
+        }else{
+            cargarNombres();
+            adapteri = new ArrayAdapter<>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,nombreDeZapatos);
+            miListaInvitado.setAdapter(adapteri);
+        }
+
         miListaInvitado.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int selecion, long l) {
@@ -52,11 +59,9 @@ public class invitadoActivity extends AppCompatActivity {
                 }else{
                     selectMenuInvitado(view,selecion);
                 }
-
             }
         });
     }
-
 
     public void selectMenuUser(View view,final int selecion)
     {
