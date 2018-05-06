@@ -25,9 +25,7 @@ public class invitadoActivity extends AppCompatActivity {
     PopupMenu popUpMenuInvitado;
     PopupMenu popUpMenuUser;
 
-    public void cargarNombres(){
-        nombreDeZapatos = new Producto().nombresDeZapatos();
-    }
+ 
     public void cargarZapatos(){
         misZapatos = new Producto().cargarZapatos();
     }
@@ -46,8 +44,8 @@ public class invitadoActivity extends AppCompatActivity {
             adapter = new ArrayAdapter<>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,misZapatos);
             miListaInvitado.setAdapter(adapter);
         }else{
-            cargarNombres();
-            adapteri = new ArrayAdapter<>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,nombreDeZapatos);
+            cargarZapatos();
+            adapteri = new ArrayAdapter<>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,cargarNombres());
             miListaInvitado.setAdapter(adapteri);
         }
 
@@ -55,15 +53,23 @@ public class invitadoActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int selecion, long l) {
                 if((getIntent().getExtras().getString("verificarUsuario")).equals("User")){
-                    selectMenuUser(view,selecion);
+                    selectMenuUser(view,misZapatos[selecion]);
                 }else{
-                    selectMenuInvitado(view,selecion);
+                    selectMenuInvitado(view,misZapatos[selecion]);
                 }
             }
         });
     }
 
-    public void selectMenuUser(View view,final int selecion)
+    public String [] cargarNombres(){
+        nombreDeZapatos = new String[misZapatos.length];
+        for (int i=0;i<nombreDeZapatos.length;i++){
+            nombreDeZapatos[i]=misZapatos[i].getNombre();
+        }
+        return nombreDeZapatos;
+    }
+
+    public void selectMenuUser(View view,final Producto objProducto)
     {
         popUpMenuUser= new PopupMenu(this, view);
         popUpMenuUser.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -71,9 +77,7 @@ public class invitadoActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.ver:
-                        Intent intent = new Intent(getApplicationContext(), detalleActivity.class);
-                        intent.putExtra("id", misZapatos[selecion]);
-                        startActivity(intent);
+                        envioObjeto(objProducto);
                         return true;
                     case R.id.comprar:
                         Toast.makeText(getApplicationContext(),"Producto Agregado",Toast.LENGTH_SHORT).show();
@@ -90,7 +94,7 @@ public class invitadoActivity extends AppCompatActivity {
         popUpMenuUser.show();
     }
 
-    public void selectMenuInvitado(View view,final int selecion)
+    public void selectMenuInvitado(View view, final Producto objProducto)
     {
         popUpMenuInvitado= new PopupMenu(this, view);
         popUpMenuInvitado.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -98,9 +102,7 @@ public class invitadoActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.ver:
-                        Intent intent = new Intent(getApplicationContext(), detalleActivity.class);
-                        intent.putExtra("id", misZapatos[selecion]);
-                        startActivity(intent);
+                        envioObjeto(objProducto);
                         return true;
                     case R.id.comprar:
                         Toast.makeText(getApplicationContext(),"Debes Iniciar Sesion",Toast.LENGTH_SHORT).show();
@@ -113,5 +115,13 @@ public class invitadoActivity extends AppCompatActivity {
         popUpMenuInvitado.inflate(R.menu.invitado_menu);
         popUpMenuInvitado.show();
     }
+
+    public void envioObjeto(Producto objProducto){
+        Intent intent = new Intent(getApplicationContext(), detalleActivity.class);
+        intent.putExtra("id", objProducto);
+        startActivity(intent);
+    }
+
+
 }
 

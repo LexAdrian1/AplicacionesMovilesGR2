@@ -6,13 +6,13 @@ public class Producto implements Serializable{
 
     String nombre,marca;
     String misNombres[];
-    Integer talla,precio;
+    String talla,precio;
     Producto misZapatos [];
 
     public Producto() {
     }
 
-    public Producto(String nombre, String marca, Integer talla, Integer precio) {
+    public Producto(String nombre, String marca, String talla, String precio) {
         this.nombre = nombre;
         this.marca = marca;
         this.talla = talla;
@@ -35,22 +35,13 @@ public class Producto implements Serializable{
         this.marca = marca;
     }
 
+    public String getTalla() { return talla; }
 
-    public Integer getTalla() {
-        return talla;
-    }
+    public void setTalla(String talla) { this.talla = talla; }
 
-    public void setTalla(int talla) {
-        this.talla = talla;
-    }
+    public String getPrecio() { return precio; }
 
-    public Integer getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
+    public void setPrecio(String precio) { this.precio = precio; }
 
     @Override
     public String toString() {
@@ -59,39 +50,23 @@ public class Producto implements Serializable{
 
     public Producto [] cargarZapatos(){
         misZapatos = new Producto[] {
-                new Producto("Predator","Nike", 8,120),
-                new Producto("skate","adidas", 5,95),
-                new Producto("Nyjah","DC", 7,98),
-                new Producto("Navy","etnies", 6,93),
-                new Producto("Run","adidas", 11,80),
-                new Producto("Marana","etnies", 10,100),
-                new Producto("Predator","Nike", 8,120),
-                new Producto("skate","adidas", 5,95),
-                new Producto("Nyjah","DC", 7,98),
-                new Producto("Navy","etnies", 6,93),
-                new Producto("Run","adidas", 11,80),
-                new Producto("Marana","etnies", 10,100),
-                new Producto("Predator","Nike", 8,120),
-                new Producto("skate","adidas", 5,95),
-                new Producto("Nyjah","DC", 7,98),
-                new Producto("Navy","etnies", 6,93),
-                new Producto("Run","adidas", 11,80),
-                new Producto("Marana","etnies", 10,100),
-                new Producto("Predator","Nike", 8,120),
-                new Producto("skate","adidas", 5,95),
-                new Producto("Nyjah","DC", 7,98),
-                new Producto("Navy","etnies", 6,93),
-                new Producto("Run","adidas", 11,80),
-                new Producto("Converse","converser", 5,70),
+                new Producto("Predator","Adidas", "8","40"),
+                new Producto("Mercurial","Nike", "8","90"),
+                new Producto("Nyjah","DC", "7","98"),
+                new Producto("Navy","Etnies", "10","100"),
+                new Producto("SC400","UA", "11","150"),
+                new Producto("Marana","Etnies", "9","45"),
+                new Producto("Predator Futbol","Adidas","8","200"),
+                new Producto("Puma Skate","Puma", "7","80"),
         };
         return misZapatos;
     }
 
-    public String [] nombresDeZapatos(){
+    /*public String [] nombresDeZapatos(){
         misNombres = new String[cargarZapatos().length];
         for (int i=0;i<misNombres.length;i++){
             misNombres[i]=cargarZapatos()[i].getNombre();
         }
         return misNombres;
-    }
+    }*/
 }

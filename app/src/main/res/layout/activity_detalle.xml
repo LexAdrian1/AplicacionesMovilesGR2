@@ -34,7 +34,7 @@
         android:id="@+id/editText3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="Talla"
         android:inputType="textPersonName"
@@ -49,6 +49,32 @@
         android:ems="10"
         android:hint="Precio"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editText3"
+        app:layout_constraintEnd_toEndOf="@+id/buttonAgregar"
+        app:layout_constraintStart_toEndOf="@+id/buttonAgregar"
         app:layout_constraintTop_toBottomOf="@+id/editText3" />
+
+    <Button
+        android:id="@+id/buttonAgregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="35dp"
+        android:text="Agregar"
+        app:layout_constraintEnd_toStartOf="@+id/buttonLeer"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText4"
+        android:onClick="agregarProductoArchivo"/>
+
+    <Button
+        android:id="@+id/buttonLeer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Leer"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonAgregar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonAgregar"
+        android:onClick="leerArchivo"/>
+
 </android.support.constraint.ConstraintLayout>
