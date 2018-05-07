@@ -31,7 +31,7 @@ public class detalleActivity extends AppCompatActivity {
         marca = (EditText) findViewById(R.id.editText2);
         talla = (EditText) findViewById(R.id.editText3);
         precio = (EditText) findViewById(R.id.editText4);
-        agregar = (Button) findViewById(R.id.buttonAgregar);
+
         Producto detallesZapatos = (Producto) getIntent().getExtras().getSerializable("id");
         nombre.setText(detallesZapatos.getNombre());
         marca.setText(detallesZapatos.getMarca());

@@ -88,7 +88,7 @@ public class listaActivity extends AppCompatActivity {
                                 objProducto.getPrecio().toString()));
                         Toast.makeText(getApplicationContext(),"Producto Agregado",Toast.LENGTH_SHORT).show();
                         return true;
-                    case R.id.eliminar:
+                    case R.id.carroCompras:
                         controladorArchivoObjeto.escribirArchivoArrayList(arrayListCarrito,"Productos.txt");
                         Toast.makeText(getApplicationContext(),"Carrito de Compras",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), carroComprasActivity.class);

@@ -4,5 +4,5 @@
 
     <item android:title="Ver" android:id="@+id/ver"/>
     <item android:title="Comprar" android:id="@+id/comprar"/>
-    <item android:title="Eliminar" android:id="@+id/eliminar"/>
+    <item android:title="Carro de Compras" android:id="@+id/carroCompras"/>
 </menu>
