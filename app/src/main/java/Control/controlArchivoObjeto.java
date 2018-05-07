@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import modelo.Producto;
 
@@ -32,6 +33,20 @@ public class controlArchivoObjeto {
         }
     }
 
+    public void escribirArchivoArrayList(ArrayList<Producto> arrayListProductos, String nombre) {
+
+        try {
+            FileOutputStream fos = new FileOutputStream(ruta + nombre);
+            ObjectOutputStream out = new ObjectOutputStream(fos);
+            out.writeObject(arrayListProductos);
+            fos.close();
+        } catch (FileNotFoundException e) {
+            Log.e("Error Archivo", e.toString());
+        } catch (IOException e) {
+            Log.e("Error", e.toString());
+        }
+    }
+
     public Producto leerArchivo(String nombre) {
         Producto p = null;
         try {
@@ -49,20 +64,15 @@ public class controlArchivoObjeto {
         return p;
     }
 
-    public ArrayList<Producto> leerArchivoArrayList(String nombre) {
-        ArrayList<Producto> objectsList = new ArrayList<Producto>();
+    public List<Producto> leerArchivoArrayList(String nombre) {
+        //ArrayList<Producto> objectsList = new ArrayList<Producto>();
+        List<Producto> objectsList=null;
         try {
-            Producto p = null;
             FileInputStream fis = new FileInputStream(ruta + nombre);
             ObjectInputStream in = new ObjectInputStream(fis);
-            p = (Producto) in.readObject();
-            objectsList.add(p);
-            while (p != null) {
-                p = (Producto) in.readObject();
-                objectsList.add(p);
-            }
+            objectsList = ((List<Producto>)in.readObject());
+            in.close();
             fis.close();
-            return objectsList;
         } catch (FileNotFoundException e) {
             Log.e("Error Archivo", e.toString());
         } catch (IOException e) {
@@ -70,6 +80,6 @@ public class controlArchivoObjeto {
         } catch (ClassNotFoundException e) {
             Log.e("Error Persona", e.toString());
         }
-        return objectsList;
+        return  objectsList;
     }
 }

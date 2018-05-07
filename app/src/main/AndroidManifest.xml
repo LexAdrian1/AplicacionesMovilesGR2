@@ -18,8 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".invitadoActivity" />
+        <activity android:name=".carroComprasActivity" />
+        <activity android:name=".listaActivity" />
         <activity android:name=".detalleActivity"></activity>
     </application>
 

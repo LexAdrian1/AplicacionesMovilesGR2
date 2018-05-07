@@ -3,6 +3,7 @@ package com.example.usuario.myapplicationtaller;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,21 +12,25 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import Control.controlArchivoObjeto;
 import modelo.Producto;
 
-public class invitadoActivity extends AppCompatActivity {
+public class listaActivity extends AppCompatActivity {
 
     ListView miListaInvitado;
     ArrayAdapter<String> adapteri;
     String [] nombreDeZapatos;
-
+    public controlArchivoObjeto controladorArchivoObjeto = new controlArchivoObjeto();
+    public ArrayList<Producto> arrayListCarrito = new ArrayList<Producto>();
     ArrayAdapter<Producto> adapter;
     Producto [] misZapatos;
 
     PopupMenu popUpMenuInvitado;
     PopupMenu popUpMenuUser;
 
- 
     public void cargarZapatos(){
         misZapatos = new Producto().cargarZapatos();
     }
@@ -33,7 +38,7 @@ public class invitadoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_invitado);
+        setContentView(R.layout.activity_lista);
 
         miListaInvitado = (ListView) findViewById(R.id.listaInvitado);
         //invitado = getIntent().getExtras().getString("idUser");
@@ -80,10 +85,17 @@ public class invitadoActivity extends AppCompatActivity {
                         envioObjeto(objProducto);
                         return true;
                     case R.id.comprar:
+                        arrayListCarrito.add(new Producto(objProducto.getNombre().toString(),
+                                objProducto.getMarca().toString(),
+                                objProducto.getTalla().toString(),
+                                objProducto.getPrecio().toString()));
                         Toast.makeText(getApplicationContext(),"Producto Agregado",Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.eliminar:
+                        controladorArchivoObjeto.escribirArchivoArrayList(arrayListCarrito,"Productos.txt");
                         Toast.makeText(getApplicationContext(),"Producto Eliminado",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), carroComprasActivity.class);
+                        startActivity(intent);
                         return true;
                     default:
                         return false;

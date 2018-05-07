@@ -19,7 +19,6 @@ public class detalleActivity extends AppCompatActivity {
     EditText talla;
     EditText precio;
     Button agregar;
-    public controlArchivoObjeto controladorArchivoObjeto = new controlArchivoObjeto();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +37,6 @@ public class detalleActivity extends AppCompatActivity {
         marca.setText(detallesZapatos.getMarca());
         talla.setText(String.valueOf(detallesZapatos.getTalla()));
         precio.setText(String.valueOf(detallesZapatos.getPrecio()));
-        //Toast.makeText(getApplicationContext(),getIntent().getExtras().getString ("indice").toString(), Toast.LENGTH_LONG).show();
-
     }
 
     /*public void agregarProductoArchivo(View view){

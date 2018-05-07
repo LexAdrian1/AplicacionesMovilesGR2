@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openUser(View view) {
-        if (name.getText().toString().equals("alexis") && (pass.getText().toString().equals("1234"))) {
-            Intent intents = new Intent(getApplicationContext(), invitadoActivity.class);
+        if (name.getText().toString().equals("user") && (pass.getText().toString().equals("123"))) {
+            Intent intents = new Intent(getApplicationContext(), listaActivity.class);
             intents.putExtra("verificarUsuario", verificarUser="User".toString());
             /*intents.putExtra("idUser", user.getText().toString());
             intents.putExtra("idPass", pass.getText().toString());*/
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openInvitado(View view) {
         if ((name.getText().toString().isEmpty()) && (pass.getText().toString().isEmpty())) {
-            Intent intents = new Intent(getApplicationContext(), invitadoActivity.class);
+            Intent intents = new Intent(getApplicationContext(), listaActivity.class);
             /*intents.putExtra("idUser", user.getText().toString());
             intents.putExtra("idPass", pass.getText().toString());*/
             intents.putExtra("verificarUsuario", verificarUser="Invitado".toString());
