@@ -39,25 +39,4 @@ public class detalleActivity extends AppCompatActivity {
         precio.setText(String.valueOf(detallesZapatos.getPrecio()));
     }
 
-    /*public void agregarProductoArchivo(View view){
-        controladorArchivoObjeto.escribirArchivo(new Producto(nombre.getText().toString(),marca.getText().toString(),talla.getText().toString(),precio.getText().toString()),"Productos.txt");
-        Toast.makeText(getApplicationContext(),"Producto Agregado", Toast.LENGTH_LONG).show();
-        LimpiarCampos();
-    }
-
-    public  void leerArchivo(View view){
-        //Producto p = controladorArchivoObjeto.leerArchivo("Productos.txt");
-        //controladorArchivoObjeto.leerArchivo("Productos.txt");
-        //Toast.makeText(getApplicationContext(),p.toString(), Toast.LENGTH_LONG).show();
-        ArrayList<Producto>  arrayListp =  controladorArchivoObjeto.leerArchivoArrayList("Productos.txt");
-        for (Producto member : arrayListp){
-            Log.i("Member name: ", member.toString());
-        }
-    }
-    public void LimpiarCampos(){
-        nombre.setText("");
-        marca.setText("");
-        talla.setText("");
-        precio.setText("");
-    }*/
 }

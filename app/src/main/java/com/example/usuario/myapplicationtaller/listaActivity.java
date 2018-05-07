@@ -3,7 +3,6 @@ package com.example.usuario.myapplicationtaller;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,8 +12,6 @@ import android.widget.Toast;
 import android.view.View;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-
 import Control.controlArchivoObjeto;
 import modelo.Producto;
 
@@ -93,7 +90,7 @@ public class listaActivity extends AppCompatActivity {
                         return true;
                     case R.id.eliminar:
                         controladorArchivoObjeto.escribirArchivoArrayList(arrayListCarrito,"Productos.txt");
-                        Toast.makeText(getApplicationContext(),"Producto Eliminado",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Carrito de Compras",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), carroComprasActivity.class);
                         startActivity(intent);
                         return true;
@@ -133,7 +130,5 @@ public class listaActivity extends AppCompatActivity {
         intent.putExtra("id", objProducto);
         startActivity(intent);
     }
-
-
 }
 
