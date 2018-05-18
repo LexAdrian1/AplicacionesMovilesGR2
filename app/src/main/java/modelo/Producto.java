@@ -5,11 +5,18 @@ import java.io.Serializable;
 public class Producto implements Serializable{
 
     String nombre,marca;
-    String misNombres[];
-    String talla,precio;
+    String talla,precio,codigo;
     Producto misZapatos [];
 
     public Producto() {
+    }
+
+    public Producto(String nombre, String marca, String talla, String precio,String codigo) {
+        this.nombre = nombre;
+        this.marca = marca;
+        this.talla = talla;
+        this.precio = precio;
+        this.codigo = codigo;
     }
 
     public Producto(String nombre, String marca, String talla, String precio) {
@@ -43,6 +50,8 @@ public class Producto implements Serializable{
 
     public void setPrecio(String precio) { this.precio = precio; }
 
+    public String getCodigo() { return codigo; }
+
     @Override
     public String toString() {
         return this.nombre + " Marca: "+this.marca+" Precio: "+this.precio ;
@@ -50,23 +59,15 @@ public class Producto implements Serializable{
 
     public Producto [] cargarZapatos(){
         misZapatos = new Producto[] {
-                new Producto("Predator","Adidas", "8","40"),
-                new Producto("Mercurial","Nike", "8","90"),
-                new Producto("Nyjah","DC", "7","98"),
-                new Producto("Navy","Etnies", "10","100"),
-                new Producto("SC400","UA", "11","150"),
-                new Producto("Marana","Etnies", "9","45"),
-                new Producto("Predator Futbol","Adidas","8","200"),
-                new Producto("Puma Skate","Puma", "7","80"),
+                new Producto("Predator","Adidas", "8","40","001"),
+                new Producto("Mercurial","Nike", "8","90","002"),
+                new Producto("Nyjah","DC", "7","98","003"),
+                new Producto("Navy","Etnies", "10","100","005"),
+                new Producto("SC400","UA", "11","150","006"),
+                new Producto("Marana","Etnies", "9","45","007"),
+                new Producto("Predator Futbol","Adidas","8","200","008"),
+                new Producto("Puma Skate","Puma", "7","80","010"),
         };
         return misZapatos;
     }
-
-    /*public String [] nombresDeZapatos(){
-        misNombres = new String[cargarZapatos().length];
-        for (int i=0;i<misNombres.length;i++){
-            misNombres[i]=cargarZapatos()[i].getNombre();
-        }
-        return misNombres;
-    }*/
 }

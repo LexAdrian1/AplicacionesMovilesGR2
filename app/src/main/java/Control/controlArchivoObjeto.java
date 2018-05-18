@@ -64,6 +64,25 @@ public class controlArchivoObjeto {
         return p;
     }
 
+    public List<Producto>  leerArchivoList(String nombre) {
+        Producto p = null;
+        List<Producto> objectsList=null;
+        try {
+            FileInputStream fis = new FileInputStream(ruta + nombre);
+            ObjectInputStream in = new ObjectInputStream(fis);
+            p = (Producto) in.readObject();
+            objectsList.add(p);
+            fis.close();
+        } catch (FileNotFoundException e) {
+            Log.e("Error Archivo", e.toString());
+        } catch (IOException e) {
+            Log.e("Error IO", e.toString());
+        } catch (ClassNotFoundException e) {
+            Log.e("Error Persona", e.toString());
+        }
+        return objectsList;
+    }
+
     public List<Producto> leerArchivoArrayList(String nombre) {
         //ArrayList<Producto> objectsList = new ArrayList<Producto>();
         List<Producto> objectsList=null;

@@ -49,7 +49,10 @@ public class MainActivity extends AppCompatActivity {
         }else {
             Toast.makeText(getApplicationContext(), "Validar", Toast.LENGTH_SHORT).show();
         }
+    }
 
-
+    public void openScanner(View view) {
+        Intent intents = new Intent(getApplicationContext(), scannerQRActivity.class);
+        startActivity(intents);
     }
 }

@@ -34,18 +34,28 @@
         android:id="@+id/buttonUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="35dp"
+        android:onClick="openUser"
         android:text="Ingresar"
         app:layout_constraintStart_toStartOf="@+id/editTextPass"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPass"
-        android:onClick="openUser"/>
+        app:layout_constraintTop_toBottomOf="@+id/editTextPass" />
 
     <Button
         android:id="@+id/buttonInvitado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="openInvitado"
         android:text="Invitado"
         app:layout_constraintBaseline_toBaselineOf="@+id/buttonUser"
-        app:layout_constraintEnd_toEndOf="@+id/editTextPass"
-        android:onClick="openInvitado"/>
+        app:layout_constraintEnd_toEndOf="@+id/editTextPass" />
+
+    <Button
+        android:id="@+id/buttonScanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Scanner"
+        android:onClick="openScanner"
+        app:layout_constraintStart_toStartOf="@+id/buttonUser"
+        app:layout_constraintTop_toBottomOf="@+id/buttonUser" />
 </android.support.constraint.ConstraintLayout>
