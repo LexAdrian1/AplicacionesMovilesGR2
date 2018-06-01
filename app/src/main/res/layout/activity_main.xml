@@ -11,51 +11,90 @@
         android:id="@+id/editTextName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/editTextPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="45dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/editTextName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
+        app:layout_constraintTop_toTopOf="@+id/editTextName" />
 
     <Button
         android:id="@+id/buttonUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginBottom="21dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
         android:onClick="openUser"
         android:text="Ingresar"
-        app:layout_constraintStart_toStartOf="@+id/editTextPass"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPass" />
+        app:layout_constraintBottom_toTopOf="@+id/buttonRegistro"
+        app:layout_constraintEnd_toStartOf="@+id/buttonInvitado"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonInvitado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="21dp"
         android:onClick="openInvitado"
         android:text="Invitado"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonUser"
-        app:layout_constraintEnd_toEndOf="@+id/editTextPass" />
+        app:layout_constraintBottom_toTopOf="@+id/buttonRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonUser" />
 
     <Button
         android:id="@+id/buttonScanner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Scanner"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:onClick="openScanner"
-        app:layout_constraintStart_toStartOf="@+id/buttonUser"
-        app:layout_constraintTop_toBottomOf="@+id/buttonUser" />
+        android:text="Scanner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonRegistro"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="openRegistro"
+        android:text="REGISTRO"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSignInGoogle"
+        app:layout_constraintEnd_toEndOf="@+id/buttonSignInGoogle"
+        app:layout_constraintStart_toStartOf="@+id/buttonSignInGoogle" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/buttonSignInGoogle"
+        android:layout_width="141dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="144dp"
+        android:layout_marginTop="144dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPass"></com.google.android.gms.common.SignInButton>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="LOGIN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

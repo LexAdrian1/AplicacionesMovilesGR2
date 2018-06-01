@@ -26,7 +26,8 @@
         <activity android:name=".carroComprasActivity" />
         <activity android:name=".listaActivity" />
         <activity android:name=".detalleActivity" />
-        <activity android:name=".scannerQRActivity"></activity>
+        <activity android:name=".scannerQRActivity" />
+        <activity android:name=".RegistroActivity"></activity>
     </application>
 
 </manifest>
